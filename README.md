@@ -1,4 +1,45 @@
-# SW2PS2
+# NS2PCSX2-9X
+
+**PlayStation 2 emulation for Nintendo Switch 2 — Performance, compatibility and usability.**
+
+[![Upstream SW2PS2](https://img.shields.io/badge/upstream-SW2PS2-blue)](https://github.com/Rodpad/SW2PS2)
+[![License GPL-3.0+](https://img.shields.io/badge/license-GPL--3.0%2B-blue)](LICENSE)
+
+NS2PCSX2-9X is an independent development fork of [SW2PS2 by Rodpad](https://github.com/Rodpad/SW2PS2), powered by OunceSX2 and the ARMSX2 / PCSX2 lineage.
+
+> **Development preview:** This repository currently contains the upstream baseline. Our experimental enhancements are being developed separately and have not yet been migrated into this fork. No stable NS2PCSX2-9X release is available yet.
+
+## Development roadmap
+
+| Area | Status |
+| --- | --- |
+| Nintendo Switch 2 build pipeline | Experimental build verified in development workspace; migration pending |
+| Benchmark overlay and CPU tuning | Development builds compiled; migration pending |
+| Vulkan readback optimization | Development build compiled; hardware validation pending |
+| Per-game performance profiles and EE cycle rates | Development build compiled; migration pending |
+| FPS patch support | Experimental; runtime verification pending |
+| Advanced game library | Development in progress |
+| Modern interface, graphics and recompiler improvements | Planned |
+
+## Downloads
+
+Official NS2PCSX2-9X builds will be published on the [Releases page](https://github.com/blueshockz47/NS2PCSX2-9X/releases) after migration and validation. Until then, this fork is not a separate stable distribution.
+
+## Installation and compatibility
+
+The existing upstream SD card layout is retained:
+
+```text
+/bios/ps2/          Your own PS2 BIOS
+/roms/ps2/          Your own PS2 games
+/switch/sw2ps2/    Emulator data, settings and saves
+```
+
+Back up your existing saves and settings before experimenting with new builds. No BIOS or games are distributed.
+
+## Upstream documentation
+
+The following sections describe the inherited SW2PS2 baseline and its original features. They are retained for accurate technical reference and attribution.
 
 > **Early development:** SW2PS2 is new and there will be bugs. Please report them in
 > [Issues](https://github.com/Rodpad/SW2PS2/issues) with the game and what happened. If you can, turn on
@@ -129,6 +170,8 @@ own licences: their notices are in `romfs/licenses/THIRD_PARTY_NOTICES.txt`, whi
 the app with the GPL text.
 
 ## Credits
+
+- [Rodpad / SW2PS2](https://github.com/Rodpad/SW2PS2): original Nintendo Switch 2 frontend, integration, optimizations and upstream project.
 
 - [OunceSX2](https://github.com/nyathea/OunceSX2), [ARMSX2](https://github.com/ARMSX2/ARMSX2) and
   [PCSX2](https://github.com/PCSX2/pcsx2): the emulator core (GPL-3.0+). From OunceSX2's Switch 2 app,
