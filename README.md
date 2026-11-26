@@ -9,33 +9,67 @@ NS2PCSX2-9X is an independent development fork of [SW2PS2 by Rodpad](https://git
 
 > **Development preview:** This repository currently contains the upstream baseline. Our experimental enhancements are being developed separately and have not yet been migrated into this fork. No stable NS2PCSX2-9X release is available yet.
 
+## NS2PCSX2-9X development highlights
+
+The following enhancements are implemented in the separate development workspace. Phase 23.5b is the latest CI-verified build; Phase 23.5c is awaiting verification. Compilation success does not establish game compatibility or performance gains.
+
+### Performance and emulation
+- ARM64 EE JIT refinements, compile-time profiling and register allocation improvements.
+- VU0/VU1 and microVU recompiler cache and code generation refinements.
+- Memory allocation and cache-line alignment improvements.
+- Vulkan readback, GPU synchronization, memory and shader-cache optimization work.
+- Frame pacing diagnostics, CPU tuning and per-game performance profiles.
+- Experimental game-specific FPS patch support, including Jackie Chan Adventures.
+- Benchmark CSV logging and comparison tooling for emulator FPS, frame times and staging memory.
+
+### Modern game library
+- Fullscreen, theme-aware interface with NS2PCSX2-9X branding.
+- List and cover-grid views, favourites and recently played categories.
+- Native keyboard search, clear-search shortcut, page navigation and held-button repeat.
+- Cover previews, offline PNG artwork and bounded texture caching.
+- Persistent library sorting, last-selected game, multiple ROM directories and L3 Continue Playing.
+- Fullscreen settings with dedicated Settings, Cover Art and Credits sections.
+
+### In development — Phase 23.5c
+- Offline cover matching by exact name, case and normalized punctuation, with ambiguous matches rejected.
+- PNG artwork up to 1024 × 1024 and a 16 MiB RGBA texture budget.
+- Player 1 default mapping: PS2 Start = Switch minus, Select = Switch plus; existing custom mappings preserved.
+- Centered six-second emulator-menu reminder: L + R + L3 + R3.
+- Library cache invalidation when additional ROM directories change.
+
+### SD card layout (development builds)
+
+```text
+/bios/ps2/                     Your own PS2 BIOS
+/roms/ps2/                     Your own PS2 game dumps
+/switch/ns2pcsx2-9x/           Emulator data and configuration
+/switch/ns2pcsx2-9x/covers/    Optional PNG cover art
+/switch/ns2pcsx2-9x/states/    Save states
+/switch/ns2pcsx2-9x/settings/  Per-game settings
+```
+
+Development builds include non-destructive migration from the legacy SW2PS2 data directory when the new destination does not exist. Back up saves before testing.
+
 ## Development roadmap
 
-| Area | Status |
-| --- | --- |
-| Nintendo Switch 2 build pipeline | Experimental build verified in development workspace; migration pending |
-| Benchmark overlay and CPU tuning | Development builds compiled; migration pending |
-| Vulkan readback optimization | Development build compiled; hardware validation pending |
-| Per-game performance profiles and EE cycle rates | Development build compiled; migration pending |
-| FPS patch support | Experimental; runtime verification pending |
-| Advanced game library | Development in progress |
-| Modern interface, graphics and recompiler improvements | Planned |
+| Phase | Focus | Status |
+| --- | --- | --- |
+| 21 | ARM64 JIT and frontend foundation | CI verified |
+| 22 | VU / microVU optimization and benchmarks | CI verified |
+| 23.1–23.4 | Memory, navigation, cache and fullscreen UI | CI verified |
+| 23.5a–b | Branding and premium library features | CI verified |
+| 23.5c | Smart covers, controls and gameplay reminder | Build verification pending |
+| 23.5d | First-time setup and Switch 16:9 default | Planned |
+| 23.5e–f | In-game experience, save management and graphics/CPU efficiency | Planned |
+| 23.6 | Consolidated regression testing | Planned |
+| 24 | Game compatibility and stability | Planned |
+| 25 | Final polish, hardware testing and release candidates | Planned |
+
+Selected earlier builds have been tested on physical Switch 2 hardware. Comprehensive compatibility testing and matched performance benchmarks remain outstanding. No stable release or universal FPS improvement is claimed.
 
 ## Downloads
 
-Official NS2PCSX2-9X builds will be published on the [Releases page](https://github.com/blueshockz47/NS2PCSX2-9X/releases) after migration and validation. Until then, this fork is not a separate stable distribution.
-
-## Installation and compatibility
-
-The existing upstream SD card layout is retained:
-
-```text
-/bios/ps2/          Your own PS2 BIOS
-/roms/ps2/          Your own PS2 games
-/switch/sw2ps2/    Emulator data, settings and saves
-```
-
-Back up your existing saves and settings before experimenting with new builds. No BIOS or games are distributed.
+Official builds and corresponding source will be published on the [Releases page](https://github.com/blueshockz47/NS2PCSX2-9X/releases) after migration and validation. The public source currently remains the upstream baseline. No BIOS or games are distributed.
 
 ## Upstream documentation
 
